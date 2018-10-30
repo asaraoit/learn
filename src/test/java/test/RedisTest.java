@@ -16,9 +16,29 @@ public class RedisTest {
     private RedisTemplate template;
 
 
+    //redisTemplate.opsForValue();//操作字符串
+    //redisTemplate.opsForHash();//操作hash
+    //redisTemplate.opsForList();//操作list
+    //redisTemplate.opsForSet();//操作set
+    //redisTemplate.opsForZSet();//操作有序set
+    @Test
+    public void stringTest() {
+
+        template.opsForValue().set("java_str", "java_value");
+        System.out.println(template.opsForValue().get("java_str"));
+
+
+    }
+
+
+
+
     @Test
     public void pushTest() {
-        System.out.println(template.boundHashOps("learn_hash"));
+
+        //----------------hash  ----------
+        template.boundHashOps("learn_hash").put("k1", "v1");
+        System.out.println(template.boundHashOps("learn_hash").get("k?"));
 
     }
 
@@ -47,11 +67,11 @@ public class RedisTest {
 //
 //
 //    @Test
-//    public void pushTest() {
-//
-//        System.out.println(tem.boundHashOps("ad").get("1"));
-//    }
-//
+////    public void pushTest() {
+////
+////        System.out.println(tem.boundHashOps("ad").get("1"));
+////    }
+////
 //    @Test
 //    public void StringTest(){
 //        tem.boundValueOps("str").set("a");

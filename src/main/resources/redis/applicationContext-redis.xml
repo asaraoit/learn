@@ -20,7 +20,7 @@
         <!--最大空闲数-->
         <property name="maxIdle" value="${redis.maxIdle}"/>
         <!--等待时间-->
-        <property name="maxWaitMillis" value="${redis.maxWait}"/>
+        <property name="maxWaitMillis" value="${redis.maxWaitMillis}"/>
         <!--是否在从池中取出连接前进行检验,如果检验失败,则从池中去除连接并尝试取出另一个-->
         <property name="testOnBorrow" value="${redis.testOnBorrow}"/>
     </bean>
@@ -59,7 +59,7 @@
 
 
     <bean id="JedisConnectionFactory" class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory"
-          p:host-name="${redis.host}" p:port="${redis.port}" p:password="${redis.pass}"
+          p:host-name="${redis.hostName}" p:port="${redis.port}" p:password="${redis.pass}"
           p:pool-config-ref="jedisPoolConfig"/>
     <!--与上面作用相同  格式不同   -->
     <!--
