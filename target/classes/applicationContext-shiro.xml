@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context 
+		http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/data/elasticsearch"
+>
+
+
+	<!-- filter -->
+	<bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
+		<!-- 安全管理 -->
+		<property name="securityManager" ref="securityManager" />
+		<!-- 登录 -->
+		<property name="loginUrl" value="/login.html" />
+		<!-- 登录成功跳转 -->
+		<property name="successUrl" value="/index.html" />
+		<!-- 无权限页面 -->
+		<property name="unauthorizedUrl" value="/unauthorized.html" />
+		<!-- 控制过滤器规则 -->
+		<property name="filterChainDefinitions">
+			<value>
+				<!-- *参数等，，，**包含子子目录 -->
+				<!-- 不拦截哪些，，，拦截哪些 -->
+				/login.html* = anon
+				/css/** = anon
+				/js/**=anon
+				/images/**=anon
+				<!-- 其他都得登录后才能访问 -->
+				/** = authc
+			</value>
+		</property>
+	</bean>
+
+
+	<!--安全管理器 -->
+	<bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
+		<!-- 单realm应用。如果有多个realm，使用‘realms’属性代替 -->
+		<!-- <property name="realm" ref="sampleRealm" /> -->
+		<!-- <property name="cacheManager" ref="cacheManager" /> -->
+	</bean>
+	<!-- -->
+	<!-- <bean id="cacheManager" class="org.apache.shiro.cache.ehcache.EhCacheManager" 
+		/> -->
+
+	<!-- -->
+	<!-- <bean id="sampleRealm" class="org.apache.shiro.realm.jdbc.JdbcRealm"> 
+		<property name="dataSource" ref="dataSource" /> <property name="authenticationQuery" 
+		value="select t.password from my_user t where t.username = ?" /> <property 
+		name="userRolesQuery" value="select a.rolename from my_user_role t left join 
+		my_role a on t.roleid = a.id where t.username = ? " /> <property name="permissionsQuery" 
+		value="SELECT B.PERMISSION FROM MY_ROLE T LEFT JOIN MY_ROLE_PERMISSION A 
+		ON T.ID = A.ROLE_ID LEFT JOIN MY_PERMISSION B ON A.PERMISSION = B.ID WHERE 
+		T.ROLENAME = ? " /> <property name="permissionsLookupEnabled" value="true" 
+		/> <property name="saltStyle" value="NO_SALT" /> <property name="credentialsMatcher" 
+		ref="hashedCredentialsMatcher" /> </bean> -->
+
+
+	<!-- 后处理器，，干啥用 -->
+	<bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor" />
+
+
+
+
+
+
+</beans>

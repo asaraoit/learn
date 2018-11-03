@@ -6,7 +6,7 @@
     <!-- spring容器  -->
     <context-param>
         <param-name>contextConfigLocation</param-name>
-        <param-value>classpath:springmvc.xml</param-value>
+        <param-value>classpath:spring/applicationContext-*.xml</param-value>
     </context-param>
 
     <!-- log4j -->
@@ -42,7 +42,7 @@
         <!-- 可以自定义servlet.xml配置文件的位置和名称，默认为WEB-INF目录下，名称为[<servlet-name>]-servlet.xml，如spring-servlet.xml-->
         <init-param>
             <param-name>contextConfigLocation</param-name>
-            <param-value>classpath:springmvc.xml</param-value>
+            <param-value>classpath:spring/springmvc.xml</param-value>
         </init-param>
         <load-on-startup>1</load-on-startup>
     </servlet>
@@ -55,5 +55,17 @@
         <welcome-file>index.html</welcome-file>
         <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>
+
+
+    <filter>
+        <!-- 这里的 filter-name 要和 spring 的 applicationContext-shiro.xml 里的org.apache.shiro.spring.web.ShiroFilterFactoryBean 的 bean name 相同 -->
+        <filter-name>shiroSecurityFilter</filter-name>
+        <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>shiroSecurityFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
 
 </web-app>

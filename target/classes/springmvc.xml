@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:context="http://www.springframework.org/schema/context" xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+    http://www.springframework.org/schema/context 
+    http://www.springframework.org/schema/context/spring-context-4.0.xsd
+     http://www.springframework.org/schema/mvc 
+     http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
+     http://www.springframework.org/schema/aop 
+     http://www.springframework.org/schema/aop/spring-aop-4.0.xsd">
+    <bean id="utf8Charset" class="java.nio.charset.Charset" factory-method="forName">
+        <constructor-arg value="UTF-8"/>
+    </bean>
+
+    <!-- 参数配置 -->
+    <!--<context:property-placeholder location="classpath:properties/resource.properties" />-->
+
+    <!-- 扫描组件 -->
+    <context:component-scan base-package="controller"/>
+    <!-- 扫描组件,定时任务 -->
+    <!-- <context:component-scan base-package="spring_quartz"/>-->
+
+    <!-- 注解驱动 -->
+    <mvc:annotation-driven/>
+
+    <!-- <mvc:resources mapping="/background/common/**" location="/background/common/"  /> -->
+
+    <!-- 地址映射 -->
+    <mvc:view-controller path="/" view-name="index"/>
+    <bean class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+        <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"></property>
+
+        <property name="prefix" value="/"></property>
+        <property name="suffix" value=".html"></property>
+    </bean>
+
+
+    <!--json转换ResponseBody,,,jackson使用-->
+    <!--  <mvc:annotation-driven>
+            <mvc:message-converters>
+                <bean class="org.springframework.http.converter.StringHttpMessageConverter"/>
+                <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter"/>
+            </mvc:message-converters>
+        </mvc:annotation-driven>-->
+
+
+    <!--<import resource="quartz.xml"/>-->
+    <import resource="applicationContext-shiro.xml"/>
+
+
+</beans>
