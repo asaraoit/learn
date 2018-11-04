@@ -3,11 +3,26 @@
 <configuration>
 
 
-	<!-- 分页插件为啥要放在这 -->
+	<!--&lt;!&ndash; 分页插件为啥要放在这 &ndash;&gt;-->
+	<!--<plugins>-->
+		<!--&lt;!&ndash; com.github.pagehelper 为 PageHelper 类所在包名 &ndash;&gt;-->
+		<!--<plugin interceptor="com.github.pagehelper.PageHelper">-->
+			<!--&lt;!&ndash; 设置数据库类型 Oracle,Mysql,MariaDB,SQLite,Hsqldb,PostgreSQL 六种数据库 &ndash;&gt;-->
+			<!--<property name="dialect" value="mysql" />-->
+		<!--</plugin>-->
+	<!--</plugins>-->
+
+	<!-- 全局配置参数，需要时再设置 -->
+	<settings>
+		<!-- 打开延迟加载的开关 -->
+		<setting name="lazyLoadingEnabled" value="true" />
+		<!-- 将积极加载改为消极加载即按需加载 -->
+		<setting name="aggressiveLazyLoading" value="false" />
+	</settings>
 	<plugins>
-		<!-- com.github.pagehelper 为 PageHelper 类所在包名 -->
+		<!-- com.github.pagehelper为PageHelper类所在包名-->
 		<plugin interceptor="com.github.pagehelper.PageHelper">
-			<!-- 设置数据库类型 Oracle,Mysql,MariaDB,SQLite,Hsqldb,PostgreSQL 六种数据库 -->
+			<!-- 设置数据库类型 Oracle,Mysql,MariaDB,SQLite,Hsqldb,PostgreSQL六种数据库 -->
 			<property name="dialect" value="mysql" />
 		</plugin>
 	</plugins>

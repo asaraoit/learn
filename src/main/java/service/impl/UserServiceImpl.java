@@ -1,13 +1,13 @@
 package service.impl;
 
 import dao.UserMapper;
-import pojo.User;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import pojo.User;
 import service.UserService;
 
 import javax.annotation.Resource;
+
 
 @Service
 @Transactional
