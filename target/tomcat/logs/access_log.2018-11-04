@@ -1,0 +1,5 @@
+0:0:0:0:0:0:0:1 - - [04/Nov/2018:21:56:02 +0800] "GET /learn/pre/login.do;jsessionid=8307F4D08AD558CF76AC7255E73381E4 HTTP/1.1" 200 373 http-bio-8081-exec-1 193
+0:0:0:0:0:0:0:1 - - [04/Nov/2018:21:56:12 +0800] "POST /learn/pre/check.do HTTP/1.1" 404 991 http-bio-8081-exec-3 60
+0:0:0:0:0:0:0:1 - - [04/Nov/2018:22:05:12 +0800] "GET /learn/pre/login.do;jsessionid=8307F4D08AD558CF76AC7255E73381E4 HTTP/1.1" 304 - http-bio-8081-exec-1 167
+0:0:0:0:0:0:0:1 - - [04/Nov/2018:22:05:21 +0800] "POST /learn/pre/check.do HTTP/1.1" 200 360 http-bio-8081-exec-3 57
+0:0:0:0:0:0:0:1 - - [04/Nov/2018:22:16:58 +0800] "POST /learn/pre/check.do HTTP/1.1" 200 360 http-bio-8081-exec-1 199

@@ -5,6 +5,7 @@ pojo\UserExample$Criterion.class
 pojo\UserExample$GeneratedCriteria.class
 system\MyRealm.class
 utils\IOUtil.class
+controller\Test.class
 pojo\UserExample.class
 xxm\Job\MyJob.class
 controller\MyEnum.class
@@ -20,6 +21,7 @@ spring_quartz\AnotherBean.class
 python\MyPython.class
 pojo\User.class
 xxm\Job\MySchedule2_CronTriggle.class
+utils\GeneratorSqlmap.class
 utils\MD5Util.class
 xxm\Job\MySchedule.class
 pojo\UserMessage.class

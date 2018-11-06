@@ -49,8 +49,9 @@
         </mvc:annotation-driven>-->
 
     <!--<import resource="applicationContext-quartz.xml"/>-->
-    <import resource="applicationContext-shiro.xml"/>
-    <import resource="applicationContext-dao.xml"/>
+    <!--<import resource="applicationContext-tx.xml"/>-->
+    <!--<import resource="applicationContext-shiro.xml"/>-->
+    <!--<import resource="applicationContext-dao.xml"/>-->
 
 
 </beans>
